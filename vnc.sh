@@ -351,30 +351,5 @@ EOF
 chmod +x /root/start-vnc.sh
 
 # 启动VNC
-info "启动VNC服务..."
-/root/start-vnc.sh
+info "安装成功！如果需要启动VNC服务...，输入/root/start-vnc.sh"
 
-# 检查是否启动成功
-sleep 3
-if pgrep -x "Xvfb" > /dev/null && pgrep -x "x11vnc" > /dev/null; then
-    SERVER_IP=$(hostname -I | awk '{print $1}')
-    info "VNC服务成功启动!"
-    info "连接信息: $SERVER_IP:5901"
-    info "VNC密码: 123456"
-    info "启动命令: /root/start-vnc.sh"
-    info "停止命令: pkill Xvfb; pkill x11vnc; pkill jwm; pkill lxpanel; pkill pcmanfm"
-    
-    info "已安装的应用程序:"
-    info "- Firefox 浏览器"
-    info "- PCManFM 文件管理器"
-    info "- XTerm 终端"
-    info "- 桌面图标和任务栏已启用"
-    if [ "$WALLPAPER_FOUND" = true ]; then
-        info "- 自定义壁纸已设置"
-    fi
-else
-    warn "VNC服务启动失败"
-    ps aux | grep -E 'Xvfb|x11vnc|jwm|lxpanel'
-fi
-
-exit 0
