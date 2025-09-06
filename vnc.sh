@@ -46,7 +46,7 @@ pkill pcmanfm || true
 # 设置VNC密码为123456
 info "设置VNC密码为123456..."
 mkdir -p /root/.vnc
-x11vnc -storepasswd 123456 /root/.vnc/passwd
+x11vnc -storepasswd ${VNC_PASSWORD:-123456} /root/.vnc/passwd
 
 # 创建壁纸目录并复制壁纸
 if [ "$WALLPAPER_FOUND" = true ]; then
