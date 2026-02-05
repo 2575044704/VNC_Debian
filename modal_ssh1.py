@@ -9,7 +9,7 @@ import time
 # 配置参数
 USERNAME = 'user'
 PASSWORD = os.environ.get('SSH_PASSWORD')
-HOST = '162.211.180.200'
+HOST = '129.153.125.100'
 REMOTE_PORT = 5901
 LOCAL_HOST = '127.0.0.1'
 LOCAL_PORT = 5901
